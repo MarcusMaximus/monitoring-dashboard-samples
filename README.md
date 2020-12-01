@@ -1,3 +1,4 @@
+Forked from <https://github.com/GoogleCloudPlatform/monitoring-dashboard-samples>
 
 # Cloud Monitoring Dashboard Samples
 
@@ -6,7 +7,7 @@ This repository contains samples that may be used with the [Cloud Monitoring Das
 ## How to use the samples
 
 1. Check it out from GitHub. For example, you can do it in Cloud Shell by clicking the button below:
-    
+
     [![Open this project in Cloud
 Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=https://github.com/GoogleCloudPlatform/monitoring-dashboard-samples.git)
 
@@ -30,7 +31,7 @@ https://monitoring.googleapis.com/v1/projects/[project-id]/dashboards -d @[file-
 If you want to export a dashboard to a JSON file and share it, you can use the following steps.
 
 1. Create the dashboard in the Monitoring UI (or even better, share one that you’ve already developed and used).
- 
+
 1. Open the dashboard and copy the dashboard ID from the URL (the string is in the URL after the /monitoring/dashboards/custom/ ˆprefix). For example, __10768789961894600977__ is the dashboard ID in the URL below:
 
     https://console.cloud.google.com/monitoring/dashboards/custom/10768789961894600977?project=sd-uxr-001&timeDomain=1h
@@ -42,12 +43,12 @@ If you want to export a dashboard to a JSON file and share it, you can use the f
 
     *  DASH_ID with the dashboard ID copied from step #2
     *  YOUR_PROJECT_ID with your project id that contains the dashboard
-    *  FILE_NAME with the output filename for the dashboard JSON config 
+    *  FILE_NAME with the output filename for the dashboard JSON config
 
     ```bash
     export DASH_ID=<YOUR_DASH_ID>
 
-    export PROJECT_NUMBER=$(gcloud projects describe <YOUR_PROJECT_ID> 
+    export PROJECT_NUMBER=$(gcloud projects describe <YOUR_PROJECT_ID>
         --format="value(projectNumber)")
 
     export FILE_NAME=<DASH_FILE_NAME>
@@ -57,7 +58,7 @@ If you want to export a dashboard to a JSON file and share it, you can use the f
 
     ```bash
     gcloud monitoring dashboards describe \
-    projects/$PROJECT_NUMBER/dashboards/$DASH_ID --format=json > $FILE_NAME   
+    projects/$PROJECT_NUMBER/dashboards/$DASH_ID --format=json > $FILE_NAME
     ```
 
 1. Open the exported JSON file in an editor and remove the etag / name fields. Alternatively, you can use the `sed` command on a Linux or MAC terminal, for example:
